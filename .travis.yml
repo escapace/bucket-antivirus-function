@@ -1,0 +1,14 @@
+language: bash
+services:
+- docker
+script:
+- make
+deploy:
+  provider: releases
+  api_key:
+    secure: OlT9scPQL5zzfeMRKN3e26MLtUeJg77Nli7Ueh1phFhcyWgJQSuyr+vFuCCRhE5zmUr44D9ANdYTfSaIS/365GbKQQLIJlW7shBHMMFuRxaiBDEtzDTIQXk+v8mai8gIy/zpFhs81bdfcukhi86pD/tq5vbomwhe/CxwAHr2kUb+8hLfJbXq1fcZqt+eMYLlbRxFihdtEb2BVuMfT0pfGYnZX4rKmHyE9T+2CeNphSSxEiu+2hpc1KnNfVZSkdh4ba0gIVVwcGKOM6aLwivOmnYUo2IVEGOxkJmv1UppC3/7vOLMlvIeBnm/kM5Hideh114MTIOrvv8hA5xIWmpYRyiD920jqYjD3Vcpd+DKZpiBOqaBTbefObB4p4q26b49AN5d2EdfYb3fKtmWRJ8eHSSaVpQcWoA/WNmiEISYg2HGv4F75o6HuiRkbP1T9nviR3KSEHG1sjjjwygTtTTn0xvLIJXCyaleC6aydkjiYNe2dHt1dN3zw9qzxFAqAN6TtQ/OHlg1AEaJoORQI5P/aAdGw6kl56MTDYnkwNUGFHEktgJO7IuwZpl+DI7UJ8Tmheiz4AwYx4/FKjoWT5j0otqqeerB7zNVMxnjk0h5VIdZq/KLvFAxpYQTsAYMAoPXwflFih7kkkLE6I7x2esDSclTkZy1cQK7rx0aVNC3qvg=
+  file: build/lambda.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: escapace/bucket-antivirus-function
